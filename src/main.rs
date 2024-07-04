@@ -1,10 +1,19 @@
 
 fn main() {
 
-    let circle: Shape = Shape::Circle((5.0));
-    let square: Shape = Shape::Square((2.0));
-    let rectangle: Shape = Shape::Rectangle((2.0), (5.0));
-    print!("Area of circle is {} and for square is {} and for rectangle is {}", calculate_area(circle), calculate_area(square), calculate_area(rectangle));
+    let x= 6;
+    let y = if x < 5 { x+5 } else {x-5};
+    println!("{}", y);
+    // let y = {
+    //     let x = 1;
+    //     x + 1
+    // };
+    // println!("{}", y);
+
+    // let circle: Shape = Shape::Circle((5.0));
+    // let square: Shape = Shape::Square((2.0));
+    // let rectangle: Shape = Shape::Rectangle((2.0), (5.0));
+    // print!("Area of circle is {} and for square is {} and for rectangle is {}", calculate_area(circle), calculate_area(square), calculate_area(rectangle));
 
     //Pattern matching with enums
 
