@@ -1,18 +1,18 @@
-mod front_of_house {
-    pub mod hosting {
-        // Added pub as modules are containers, there’s not much we can do
-        // by only making the module public; we need to go further and choose 
-        // to make one or more of the items within the module public as well
-        pub fn add_to_waitlist() {}
-        fn seat_at_table() {}
-    }
+// use std::fmt::Result;
+// // Using alias to distinguish types with same name
+// use std::io::Result as IOResult;
 
-    mod serving {
-        fn take_order() {}
-        fn serve_order() {}
-        fn take_payment() {}
-    }
-}
+// fn function1() -> Result {
+// }
+
+// fn function2() -> IOResult<()> {
+
+// }
+
+// Using nested paths
+use std::io::{self, Write};
+
+mod front_of_house;
 
 fn deliver_order() {}
 
@@ -44,6 +44,8 @@ mod back_of_house {
     fn cook_order() {}
 }
 
+use crate::front_of_house::hosting;
+
 pub fn eat_at_restaurant() {
     let mut meal = back_of_house::Breakfast::summer("Rye");
     
@@ -56,7 +58,16 @@ pub fn eat_at_restaurant() {
     // Absolute path
     crate::front_of_house::hosting::add_to_waitlist();
     // Relative path
-    front_of_house::hosting::add_to_waitlist();
+    // Updated below statement and used the "use" keyword to bring the hosting
+    // module into the scope of eat_at_restaurant
+    hosting::add_to_waitlist();
+    // front_of_house::hosting::add_to_waitlist();
+}
+
+mod customer {
+    pub fn eat_at_restaurant() {
+        // hosting::add_to_waitlist();
+    }
 }
 
 pub fn add(left: usize, right: usize) -> usize {
