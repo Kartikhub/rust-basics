@@ -21,7 +21,14 @@ fn main() {
     // let mut s = String::from("apple");
     // let ans = pig_latin::make_pl(&s);
     // println!("ans is {ans}");
-    let v: Vec<String> = vec![String::from("Add Sally to Engineering"), String::from("Add Amir to Sales")];
+    let mut v: Vec<String> = vec![String::from("Add Sally to Engineering"), String::from("Add Rahul to Engineering"), String::from("Add Amir to Sales"), String::from("Add Raj to Security")];
     let mut map = text_interface::show_people_in_dept(&mut v);
-    println!("{map:?}");
+
+    let mut sorted_vec: Vec<_> = map.iter().collect();
+    sorted_vec.sort_by_key(|a| a.0);
+    println!("vec: {:?}", sorted_vec);
+
+    for (key, value) in sorted_vec.iter() {
+        println!("{}: {:?}", key, value);
+    }
 }
