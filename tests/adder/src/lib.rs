@@ -11,6 +11,7 @@ impl Rectangle {
 }
 
 
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
@@ -25,19 +26,26 @@ mod tests {
         assert_eq!(result, 4);
     }
 
-    #[test] // add test attribute
-    fn larger_can_hold_smaller() {
-        let larger = Rectangle {
-            width: 10,
-            height: 20
-        };
-
-        let smaller = Rectangle {
-            width: 3,
-            height: 5
-        };
-        assert!(larger.can_hold(smaller));
+    // custom messages can be added with assert
+    #[test]
+    fn exploration_with_message() {
+        let result = add(2, 3);
+        assert!(result == 5, "The provided value is incorrect, actual sum is {}", result);
     }
+
+    // #[test] // add test attribute
+    // fn larger_can_hold_smaller() {
+    //     let larger = Rectangle {
+    //         width: 10,
+    //         height: 20
+    //     };
+
+    //     let smaller = Rectangle {
+    //         width: 3,
+    //         height: 5
+    //     };
+    //     assert!(larger.can_hold(smaller));
+    // }
 
     // #[test]
     // fn another() {
